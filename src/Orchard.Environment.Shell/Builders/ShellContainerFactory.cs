@@ -96,8 +96,8 @@ namespace Orchard.Environment.Shell.Builders
                     featureServiceCollections.Add(feature, featureServiceCollection = new ServiceCollection());
                 }
 
-                startup.ConfigureServices(featureServiceCollection);
                 tenantServiceCollection.Add(featureServiceCollection);
+                startup.ConfigureServices(tenantServiceCollection);
             }
 
             (moduleServiceProvider as IDisposable).Dispose();
